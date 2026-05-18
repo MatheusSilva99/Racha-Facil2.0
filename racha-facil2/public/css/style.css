@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #00c6ff, #7bed9f);
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+
+    width: 350px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #2ecc71;
+    color: white;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+p {
+    margin-top: 15px;
+}
+
+a {
+    color: #00a8ff;
+    text-decoration: none;
+}
+
+/* ========================= */
+/* CARD LOGIN */
+/* ========================= */
+
+.card-login {
+
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.card-login h1,
+.card-login h2 {
+
+    text-align: center;
+}
+
+.card-login input {
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 16px;
+}
+
+.card-login button {
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #00b894;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.card-login button:hover {
+
+    background: #019875;
+}
+
+.card-login hr {
+
+    border: 1px solid #444;
+}
+
+/* ========================= */
+/* DIVISÃO */
+/* ========================= */
+
+.container-divisao {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+.box-divisao {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    background: #2d2d2d;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.box-divisao h1 {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+.box-divisao input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 16px;
+}
+
+.box-divisao button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #0984e3;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.box-divisao button:hover {
+
+    background: #0767ad;
+}
+
+/* ========================= */
+/* RESULTADO */
+/* ========================= */
+
+#resultado {
+
+    margin-top: 20px;
+}
+
+#resultado p {
+
+    background: #3b3b3b;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+
+#resultado strong {
+
+    color: #00cec9;
+}
