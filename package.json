@@ -1,0 +1,24 @@
+{
+  "name": "racha-facil2.0",
+  "version": "1.0.0",
+  "description": "Sistema para dividir contas entre amigos",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatheusSilva99/Racha-Facil2.0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MatheusSilva99/Racha-Facil2.0/issues"
+  },
+  "homepage": "https://github.com/MatheusSilva99/Racha-Facil2.0#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
