@@ -1,27 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divisão - Racha Fácil</title>
-    <link rel="stylesheet" href="/css/style.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Racha Fácil</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 <body>
 
-<div class="container-divisao">
-    <div class="box-divisao">
-        <h1>Dividir Conta</h1>
+    <div class="container">
 
-        <input type="number" id="valor" placeholder="Valor total">
+        <div class="card">
 
-        <input type="text" id="pessoas" placeholder="Pessoas (ex: João, Maria)">
+            <h1>Racha Fácil</h1>
 
-        <button onclick="dividir()">Dividir</button>
+            <input
+                type="text"
+                id="descricao"
+                placeholder="Descrição da despesa"
+            >
 
-        <div id="resultado"></div>
+            <input
+                type="number"
+                id="valor"
+                placeholder="Valor total"
+            >
+
+            <input
+                type="text"
+                id="pagador"
+                placeholder="Quem pagou"
+            >
+
+            <input
+                type="text"
+                id="participantes"
+                placeholder="Participantes separados por vírgula"
+            >
+
+            <button onclick="adicionarDespesa()">
+                Adicionar Despesa
+            </button>
+
+            <button onclick="mostrarSaldos()">
+                Ver Saldos
+            </button>
+
+            <div id="resultado"></div>
+
+            <div class="historico-topo">
+
+                <h2>Histórico</h2>
+
+                <button id="btnLimparHistorico">
+                    Limpar Histórico
+                </button>
+
+            </div>
+
+            <div id="historico"></div>
+
+        </div>
+
     </div>
-</div>
 
-<script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>
