@@ -6,45 +6,48 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
-// ✅ Middlewares
+// Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// ✅ Banco SQLite
-const db = new sqlite3.Database("./database.db", (err) => {
-    if (err) {
-        console.log("Erro ao conectar no banco:", err);
-    } else {
-        console.log("Banco conectado ✅");
-    }
-});
+// Banco SQLite
+const db = new sqlite3.Database("./database.db");
 
-// ✅ Criar tabela corretamente
+// =========================
+// TABELAS
+// =========================
+
 db.serialize(() => {
+
+    // Usuários
     db.run(`
-    CREATE TABLE IF NOT EXISTS usuarios (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        email TEXT UNIQUE NOT NULL,
-        senha TEXT NOT NULL
-    )
-    `, (err) => {
-        if (err) {
-            console.log("Erro ao criar tabela:", err);
-        } else {
-            console.log("Tabela usuarios pronta ✅");
-        }
-    });
+        CREATE TABLE IF NOT EXISTS usuarios (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome TEXT,
+            email TEXT UNIQUE,
+            senha TEXT
+        )
+    `);
+
+    // Despesas
+    db.run(`
+        CREATE TABLE IF NOT EXISTS despesas (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            descricao TEXT,
+            valor REAL,
+            pagador TEXT,
+            participantes TEXT,
+            data DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    `);
 });
 
-// ✅ Página inicial → login
-app.get("/", (req, res) => {
-    res.redirect("/login.html");
-});
+// =========================
+// CADASTRO
+// =========================
 
-// ✅ Cadastro
 app.post("/cadastro", async (req, res) => {
+
     const { nome, email, senha } = req.body;
 
     if (!nome || !email || !senha) {
@@ -53,100 +56,209 @@ app.post("/cadastro", async (req, res) => {
         });
     }
 
-    try {
-        const senhaHash = await bcrypt.hash(senha, 10);
+    const senhaHash = await bcrypt.hash(senha, 10);
 
-        db.run(
-            "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)",
-            [nome, email, senhaHash],
-            function (err) {
-                if (err) {
-                    console.log("ERRO CADASTRO:", err); // 👈 LOG
-                    return res.status(400).json({
-                        erro: "Email já cadastrado"
-                    });
-                }
+    db.run(
+        `
+        INSERT INTO usuarios (nome, email, senha)
+        VALUES (?, ?, ?)
+        `,
+        [nome, email, senhaHash],
+        function (erro) {
 
-                res.json({
-                    mensagem: "Usuário cadastrado com sucesso"
-                });
-            }
-        );
-    } catch (error) {
-        console.log("ERRO GERAL CADASTRO:", error); // 👈 LOG
-        res.status(500).json({
-            erro: "Erro no servidor"
-        });
-    }
-});
-
-// ✅ Login
-app.post("/login", (req, res) => {
-    const { email, senha } = req.body;
-
-    db.get(
-        "SELECT * FROM usuarios WHERE email = ?",
-        [email],
-        async (err, usuario) => {
-            if (err) {
-                console.log("ERRO LOGIN:", err); // 👈 LOG
-                return res.status(500).json({
-                    erro: "Erro no servidor"
+            if (erro) {
+                return res.status(400).json({
+                    erro: "Email já cadastrado"
                 });
             }
 
-            if (!usuario) {
-                return res.status(401).json({
-                    erro: "Usuário não encontrado"
-                });
-            }
-
-            try {
-                const senhaCorreta = await bcrypt.compare(
-                    senha,
-                    usuario.senha
-                );
-
-                if (!senhaCorreta) {
-                    return res.status(401).json({
-                        erro: "Senha incorreta"
-                    });
-                }
-
-                res.json({
-                    mensagem: "Login realizado com sucesso"
-                });
-            } catch (error) {
-                console.log("ERRO BCRYPT:", error); // 👈 LOG
-                res.status(500).json({
-                    erro: "Erro no servidor"
-                });
-            }
+            res.json({
+                mensagem: "Usuário cadastrado"
+            });
         }
     );
 });
 
-// ✅ ✅ ROTA DE DIVISÃO
-app.post("/conta", (req, res) => {
-    const { valor, pessoas } = req.body;
+// =========================
+// LOGIN
+// =========================
 
-    if (!valor || !pessoas || pessoas.length === 0) {
+app.post("/login", (req, res) => {
+
+    const { email, senha } = req.body;
+
+    db.get(
+        `
+        SELECT * FROM usuarios
+        WHERE email = ?
+        `,
+        [email],
+        async (erro, usuario) => {
+
+            if (erro || !usuario) {
+                return res.status(400).json({
+                    erro: "Usuário não encontrado"
+                });
+            }
+
+            const senhaValida = await bcrypt.compare(
+                senha,
+                usuario.senha
+            );
+
+            if (!senhaValida) {
+                return res.status(400).json({
+                    erro: "Senha incorreta"
+                });
+            }
+
+            res.json({
+                mensagem: "Login realizado"
+            });
+        }
+    );
+});
+
+// =========================
+// ADICIONAR DESPESA
+// =========================
+
+app.post("/despesa", (req, res) => {
+
+    const {
+        descricao,
+        valor,
+        pagador,
+        participantes
+    } = req.body;
+
+    if (
+        !descricao ||
+        !valor ||
+        !pagador ||
+        participantes.length === 0
+    ) {
         return res.status(400).json({
-            erro: "Dados inválidos"
+            erro: "Preencha todos os campos"
         });
     }
 
-    const valorPorPessoa = valor / pessoas.length;
+    db.run(
+        `
+        INSERT INTO despesas
+        (descricao, valor, pagador, participantes)
+        VALUES (?, ?, ?, ?)
+        `,
+        [
+            descricao,
+            valor,
+            pagador,
+            participantes.join(",")
+        ],
+        function (erro) {
 
-    const resultado = pessoas.map(nome => ({
-        nome,
-        deve: valorPorPessoa
-    }));
+            if (erro) {
+                return res.status(500).json({
+                    erro: "Erro ao salvar despesa"
+                });
+            }
 
-    res.json(resultado);
+            res.json({
+                mensagem: "Despesa adicionada"
+            });
+        }
+    );
 });
 
-// ✅ Servidor
+// =========================
+// CALCULAR SALDOS
+// =========================
+
+app.get("/saldo", (req, res) => {
+
+    db.all(
+        `
+        SELECT * FROM despesas
+        `,
+        [],
+        (erro, despesas) => {
+
+            if (erro) {
+                return res.status(500).json({
+                    erro: "Erro ao buscar despesas"
+                });
+            }
+
+            const saldos = {};
+
+            despesas.forEach((despesa) => {
+
+                const participantes =
+                    despesa.participantes.split(",");
+
+                const valorPorPessoa =
+                    despesa.valor / participantes.length;
+
+                // Quem pagou ganha crédito
+                if (!saldos[despesa.pagador]) {
+                    saldos[despesa.pagador] = 0;
+                }
+
+                saldos[despesa.pagador] += despesa.valor;
+
+                // Participantes ganham dívida
+                participantes.forEach((pessoa) => {
+
+                    if (!saldos[pessoa]) {
+                        saldos[pessoa] = 0;
+                    }
+
+                    saldos[pessoa] -= valorPorPessoa;
+                });
+            });
+
+            const resultado = [];
+
+            for (let pessoa in saldos) {
+
+                resultado.push({
+                    nome: pessoa,
+                    saldo: saldos[pessoa]
+                });
+            }
+
+            res.json(resultado);
+        }
+    );
+});
+
+// =========================
+// LISTAR DESPESAS
+// =========================
+
+app.get("/despesas", (req, res) => {
+
+    db.all(
+        `
+        SELECT * FROM despesas
+        ORDER BY data DESC
+        `,
+        [],
+        (erro, rows) => {
+
+            if (erro) {
+                return res.status(500).json({
+                    erro: "Erro ao buscar despesas"
+                });
+            }
+
+            res.json(rows);
+        }
+    );
+});
+
+// =========================
+
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
