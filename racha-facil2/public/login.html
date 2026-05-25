@@ -4,25 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Racha Fácil</title>
-    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Login</h1>
+<div class="container">
+
+    <div class="card">
+
+        <h1>Racha Fácil</h1>
 
         <form id="loginForm">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="senha" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Digite seu email"
+                required
+            >
+
+            <input
+                type="password"
+                id="senha"
+                placeholder="Digite sua senha"
+                required
+            >
+
+            <button type="submit">
+                Entrar
+            </button>
+
         </form>
 
-        <p>
-            Não tem conta?
-            <a href="/cadastro.html">Cadastre-se</a>
+        <p class="link">
+            Não possui conta?
+            <a href="cadastro.html">Criar cadastro</a>
         </p>
+
     </div>
 
-    <script src="/js/login.js"></script>
+</div>
+
+<script src="js/login.js"></script>
+
 </body>
 </html>
