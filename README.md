@@ -8,7 +8,7 @@ O Racha Fácil 2.0 é uma aplicação web desenvolvida para facilitar a divisão
 O sistema permite que usuários cadastrem gastos, informem quem pagou, quem participou e calculem automaticamente o saldo de cada pessoa, identificando quem deve e quem tem valores a receber.
 =======
 O sistema permite que usuários cadastrem gastos, informem quem pagou e quem participou, e calculem automaticamente o saldo de cada pessoa, identificando quem deve e quem tem valores a receber.
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
+
 
 O projeto foi desenvolvido com foco em simplicidade, organização financeira e facilidade de uso em cenários como viagens, eventos e contas compartilhadas.
 
