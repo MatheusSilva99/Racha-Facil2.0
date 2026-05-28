@@ -65,7 +65,6 @@ O projeto foi desenvolvido com foco em simplicidade, organização financeira e 
 - Listagem das despesas cadastradas  
 - Visualização organizada por registros  
 - Opção de limpar histórico  
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
@@ -97,7 +96,6 @@ Resultado:
 - Cada participante deve R$25  
 - O pagador recebe R$100  
 - Os participantes ficam com saldo negativo de R$25 cada  
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
@@ -145,7 +143,6 @@ Resultado:
 
 ## Estrutura do Projeto
 
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 project-root
 │
 ├── public
@@ -195,7 +192,6 @@ npm start
 ``
 Acessar no navegador
 http://localhost:3000
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
@@ -213,7 +209,6 @@ http://localhost:3000
 - Criação de grupos de usuários  
 - Interface mais moderna com framework frontend  
 - Possibilidade de editar e excluir despesas  
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
@@ -227,7 +222,6 @@ http://localhost:3000
 - Senhas armazenadas com hash utilizando bcrypt  
 - Validação básica de dados nas requisições  
 - Restrição de duplicidade de email no cadastro  
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
@@ -238,7 +232,6 @@ Matheus Barbosa da Silva
 https://github.com/MatheusSilva99
 =======
 GitHub: https://github.com/MatheusSilva99  
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
@@ -248,4 +241,4 @@ GitHub: https://github.com/MatheusSilva99
 O Racha Fácil 2.0 é uma aplicação funcional para divisão de despesas, com uma base sólida e organizada, permitindo evolução para um sistema mais completo e escalável, seguindo padrões utilizados em aplicações de mercado.
 =======
  Racha Fácil 2.0 é uma aplicação funcional para divisão de despesas, com uma base sólida e organizada, permitindo evolução para um sistema mais completo e escalável, aproximando-se de soluções profissionais utilizadas no mercado.
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
+
