@@ -231,7 +231,7 @@ http://localhost:3000
 ## Autor
 
 Matheus Barbosa da Silva  
-<<<<<<< HEAD
+
 https://github.com/MatheusSilva99
 =======
 GitHub: https://github.com/MatheusSilva99  
@@ -245,4 +245,4 @@ GitHub: https://github.com/MatheusSilva99
 O Racha Fácil 2.0 é uma aplicação funcional para divisão de despesas, com uma base sólida e organizada, permitindo evolução para um sistema mais completo e escalável, seguindo padrões utilizados em aplicações de mercado.
 =======
  Racha Fácil 2.0 é uma aplicação funcional para divisão de despesas, com uma base sólida e organizada, permitindo evolução para um sistema mais completo e escalável, aproximando-se de soluções profissionais utilizadas no mercado.
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
+
