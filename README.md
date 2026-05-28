@@ -4,7 +4,11 @@
 
 O Racha Fácil 2.0 é uma aplicação web desenvolvida para facilitar a divisão de despesas entre grupos, com funcionamento inspirado em soluções como o Splitwise.
 
+<<<<<<< HEAD
 O sistema permite que usuários cadastrem gastos, informem quem pagou, quem participou e calculem automaticamente o saldo de cada pessoa, identificando quem deve e quem tem valores a receber.
+=======
+O sistema permite que usuários cadastrem gastos, informem quem pagou e quem participou, e calculem automaticamente o saldo de cada pessoa, identificando quem deve e quem tem valores a receber.
+>>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 O projeto foi desenvolvido com foco em simplicidade, organização financeira e facilidade de uso em cenários como viagens, eventos e contas compartilhadas.
 
@@ -13,6 +17,7 @@ O projeto foi desenvolvido com foco em simplicidade, organização financeira e 
 ## Funcionalidades
 
 ### Autenticação de Usuários
+<<<<<<< HEAD
 - Cadastro de usuários com nome, email e senha
 - Criptografia de senha utilizando bcrypt
 - Login com validação de credenciais
@@ -34,12 +39,43 @@ O projeto foi desenvolvido com foco em simplicidade, organização financeira e 
 - Listagem das despesas cadastradas
 - Visualização organizada por registros
 - Opção de limpar histórico
+=======
+
+- Cadastro de usuários com nome, email e senha  
+- Criptografia de senha utilizando bcrypt  
+- Login com validação de credenciais  
+
+### Gerenciamento de Despesas
+
+- Cadastro de despesas com:
+  - Descrição  
+  - Valor  
+  - Pagador  
+  - Participantes  
+- Armazenamento das despesas no banco de dados  
+
+### Cálculo de Saldos
+
+- Divisão automática do valor entre os participantes  
+- Cálculo de créditos para o pagador  
+- Exibição do saldo final de cada participante  
+
+### Histórico de Despesas
+
+- Listagem das despesas cadastradas  
+- Visualização organizada por registros  
+- Opção de limpar histórico  
+>>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
 ## Lógica de Funcionamento
 
+<<<<<<< HEAD
 O cálculo de divisão de despesas segue a seguinte regra:
+=======
+O cálculo de divisão de despesas segue a regra:
+>>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 1. O valor total da despesa é dividido igualmente entre todos os participantes  
 2. Cada participante recebe uma dívida proporcional à sua parte  
@@ -48,6 +84,7 @@ O cálculo de divisão de despesas segue a seguinte regra:
 
 ### Exemplo
 
+<<<<<<< HEAD
 - Valor total: R$100  
 - Participantes: 4 pessoas  
 - Cada pessoa deve: R$25  
@@ -55,12 +92,19 @@ O cálculo de divisão de despesas segue a seguinte regra:
 Resultado:
 - Pagador: +R$100  
 - Participantes: -R$25 cada  
+=======
+- Uma despesa de R$100 com 4 participantes  
+- Cada participante deve R$25  
+- O pagador recebe R$100  
+- Os participantes ficam com saldo negativo de R$25 cada  
+>>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
 ## Tecnologias Utilizadas
 
 ### Frontend
+<<<<<<< HEAD
 - HTML5
 - CSS3
 - JavaScript
@@ -78,6 +122,30 @@ Resultado:
 ---
 
 ## Estrutura do Projeto****
+=======
+
+- HTML5  
+- CSS3  
+- JavaScript (Vanilla)  
+
+### Backend
+
+- Node.js  
+- Express  
+
+### Banco de Dados
+
+- SQLite  
+
+### Segurança
+
+- Bcrypt para hash de senhas  
+
+---
+
+## Estrutura do Projeto
+
+>>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 project-root
 │
 ├── public
@@ -101,6 +169,7 @@ project-root
 
 ## Arquitetura
 
+<<<<<<< HEAD
 - O frontend se comunica com o backend via requisições HTTP
 - O backend processa os dados e acessa o banco
 - O SQLite armazena usuários e despesas
@@ -111,34 +180,72 @@ project-root
 cd Racha-Facil2.0
 npm install
 npm start
+=======
+A aplicação segue uma arquitetura simples em três camadas:
+- O frontend se comunica com o backend via requisições HTTP (fetch)  
+- O backend processa as regras de negócio e acessa o banco de dados  
+- O SQLite armazena usuários e despesas  
+
+## Como Executar o Projeto
+
+cd Racha-Facil2.0
+npm install
+
+npm start
+``
+Acessar no navegador
+http://localhost:3000
+>>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
 ## Melhorias Futuras
+<<<<<<< HEAD
 
 - Associar despesas a usuários
 - Criar sistema de grupos
 - Adicionar edição e exclusão de despesas
 - Criar relatórios financeiros
 - Realizar deploy em produção
+=======
+ 
+- Associação de despesas a usuários autenticados  
+- Criação de grupos de usuários  
+- Interface mais moderna com framework frontend  
+- Possibilidade de editar e excluir despesas  
+>>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
 ## Segurança
 
+<<<<<<< HEAD
 - Senhas protegidas com hash utilizando bcrypt
 - Validação básica de dados nas requisições
 - Restrição de emails duplicados no cadastro
+=======
+- Senhas armazenadas com hash utilizando bcrypt  
+- Validação básica de dados nas requisições  
+- Restrição de duplicidade de email no cadastro  
+>>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
 ## Autor
 
 Matheus Barbosa da Silva  
+<<<<<<< HEAD
 https://github.com/MatheusSilva99
+=======
+GitHub: https://github.com/MatheusSilva99  
+>>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 ---
 
 ## Conclusão
 
+<<<<<<< HEAD
 O Racha Fácil 2.0 é uma aplicação funcional para divisão de despesas, com uma base sólida e organizada, permitindo evolução para um sistema mais completo e escalável, seguindo padrões utilizados em aplicações de mercado.
+=======
+ Racha Fácil 2.0 é uma aplicação funcional para divisão de despesas, com uma base sólida e organizada, permitindo evolução para um sistema mais completo e escalável, aproximando-se de soluções profissionais utilizadas no mercado.
+>>>>>>> fd2505f (Docs: versão final da descrição do projeto)
