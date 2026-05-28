@@ -74,7 +74,6 @@ O projeto foi desenvolvido com foco em simplicidade, organização financeira e 
 O cálculo de divisão de despesas segue a seguinte regra:
 =======
 O cálculo de divisão de despesas segue a regra:
->>>>>>> fd2505f (Docs: versão final da descrição do projeto)
 
 1. O valor total da despesa é dividido igualmente entre todos os participantes  
 2. Cada participante recebe uma dívida proporcional à sua parte  
