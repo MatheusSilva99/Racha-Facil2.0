@@ -4,7 +4,7 @@
 
 O Racha Fácil 2.0 é uma aplicação web desenvolvida para facilitar a divisão de despesas entre grupos, com funcionamento inspirado em soluções como o Splitwise.
 
-<<<<<<< HEAD
+
 O sistema permite que usuários cadastrem gastos, informem quem pagou, quem participou e calculem automaticamente o saldo de cada pessoa, identificando quem deve e quem tem valores a receber.
 =======
 O sistema permite que usuários cadastrem gastos, informem quem pagou e quem participou, e calculem automaticamente o saldo de cada pessoa, identificando quem deve e quem tem valores a receber.
@@ -71,7 +71,7 @@ O projeto foi desenvolvido com foco em simplicidade, organização financeira e 
 
 ## Lógica de Funcionamento
 
-<<<<<<< HEAD
+
 O cálculo de divisão de despesas segue a seguinte regra:
 =======
 O cálculo de divisão de despesas segue a regra:
@@ -84,7 +84,6 @@ O cálculo de divisão de despesas segue a regra:
 
 ### Exemplo
 
-<<<<<<< HEAD
 - Valor total: R$100  
 - Participantes: 4 pessoas  
 - Cada pessoa deve: R$25  
@@ -200,7 +199,7 @@ http://localhost:3000
 ---
 
 ## Melhorias Futuras
-<<<<<<< HEAD
+
 
 - Associar despesas a usuários
 - Criar sistema de grupos
@@ -219,7 +218,7 @@ http://localhost:3000
 
 ## Segurança
 
-<<<<<<< HEAD
+
 - Senhas protegidas com hash utilizando bcrypt
 - Validação básica de dados nas requisições
 - Restrição de emails duplicados no cadastro
@@ -244,7 +243,7 @@ GitHub: https://github.com/MatheusSilva99
 
 ## Conclusão
 
-<<<<<<< HEAD
+
 O Racha Fácil 2.0 é uma aplicação funcional para divisão de despesas, com uma base sólida e organizada, permitindo evolução para um sistema mais completo e escalável, seguindo padrões utilizados em aplicações de mercado.
 =======
  Racha Fácil 2.0 é uma aplicação funcional para divisão de despesas, com uma base sólida e organizada, permitindo evolução para um sistema mais completo e escalável, aproximando-se de soluções profissionais utilizadas no mercado.
